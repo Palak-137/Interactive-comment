@@ -267,7 +267,7 @@
   }
 }
 
-.reply-container-gap .reply-container {
+.comment-container .reply-container-gap  {
   margin-top: 15px;
 
   @include media-md() {
@@ -277,19 +277,19 @@
 
 //
 .amyrobson {
-  background: url(../../Assests/images/avatars/image-amyrobson.png);
+  background-image: url("./images/avatars/image-amyrobson.png");
 }
 
 .maxblagun {
-  background: url(../../Assests/images/avatars/image-maxblagun.png);
+  background-image: url('./images/avatars/image-maxblagun.png');
 }
 
 .ramsesmiron {
-  background: url(../../Assests/images/avatars/image-ramsesmiron.png);
+  background-image: url('./images/avatars/image-ramsesmiron.png');
 }
 
 .juliusomo {
-  background: url(../../Assests/images/avatars/image-juliusomo.png);
+  background-image: url('./images/avatars/image-juliusomo.png');
 }
 
 
@@ -308,4 +308,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+.display--none{
+  display: none!important;
 }

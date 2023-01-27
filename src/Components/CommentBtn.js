@@ -19,6 +19,7 @@ const CommentBtn = ({commentData, setReplying, setDeleting, setDeleteModalState,
       setDeleteModalState(true);
     };
   
+  console.log("commentdata.currentuser",commentData.currentUser )
     // edit comment
     const showEditComment = () => {
       setEditing(true);
@@ -28,7 +29,7 @@ const CommentBtn = ({commentData, setReplying, setDeleting, setDeleteModalState,
       <div className="comment--btn">
         <button
           className={`reply-btn ${
-            !commentData.currentUser ? "" : "display--none"
+          !commentData.currentUser ? "" : "display--none"
           }`}
           onClick={showAddComment}
         >
