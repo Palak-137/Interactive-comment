@@ -11,7 +11,7 @@ import CommentFooter from "./CommentFooter";
 
 import { commentPostedTime } from "../utils";
 
-const Comments = ({
+const Comment = ({
   commentData,
   updateScore,
   updateReplies,
@@ -20,7 +20,7 @@ const Comments = ({
   setDeleteModalState,
 }) => {
   const [replying, setReplying] = useState(false);
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState(0);
   const [vote, setVoted] = useState(false);
   const [score, setScore] = useState(commentData.score);
   const [editing, setEditing] = useState(false);
@@ -30,7 +30,7 @@ const Comments = ({
   // get time from comment posted
   const createdAt = new Date(commentData.createdAt);
   const today = new Date();
-  const differenceInTime = today.getTime() - createdAt.getTime();
+  const differenceInTime=today.getTime()-createdAt.getTime();
 
   useEffect(() => {
     setTime(commentPostedTime(differenceInTime));
@@ -56,11 +56,9 @@ const Comments = ({
   };
 
   return (
-    <div
-      className={`comment-container ${
-        commentData.replies[0] !== undefined ? "reply-container-gap" : ""
-      }`}
-    >
+      <div className={
+        commentData.replies[0] !== undefined  ? " comment-container reply-container" : "comment-container"
+      }>
       <div className="comment">
         <CommentVotes
           vote={vote}
@@ -117,9 +115,9 @@ const Comments = ({
           replyingTo={commentData.username}
         />
       )}
-      {console.log("id", commentData.replies)}
       {commentData.replies !== [] && (
         <ReplyContainer
+          key={commentData.replies.id}
           commentData={commentData.replies}
           updateScore={updateScore}
           commentPostedTime={commentPostedTime}
@@ -137,8 +135,9 @@ const Comments = ({
           setDeleteModalState={setDeleteModalState}
         />
       )}
-    </div>
+      </div>
+      
   );
 };
 
-export default Comments;
+export default Comment;

@@ -31,10 +31,9 @@ const Reply = ({
   var differenceInTime = today.getTime() - createdAt.getTime();
 
   useEffect(() => {
-    console.log("in reply", commentData)
     setTime(commentPostedTime(differenceInTime));
     localStorage.setItem("voteState", vote);
-  }, [differenceInTime, commentPostedTime, vote]);
+  }, [differenceInTime, commentPostedTime, vote,commentData]);
 
   // adding reply
   const addReply = (newReply) => {
@@ -44,7 +43,10 @@ const Reply = ({
 
   const commentContent = () => {
     const text = commentData.content.trim().split(" ");
-    const firstWord = text.shift().split(",");
+    var firstWord = "";
+    if (commentData.replyingTo !== undefined) {
+      firstWord = commentData.replyingTo;
+    }
 
     return !editing ? (
       <div className="comment-content">
@@ -72,22 +74,9 @@ const Reply = ({
     deleteComment(commentData.id, "reply");
     setDeleting(false);
   };
-
-  const isReply = () => {
-    if ("replies" in commentData) {
-      
-      if (commentData.replies[0] !== undefined) {
-        return "gap";
-      }
-    }
-    return "";
-  }
   return (
-    //<div className="gap"> hello </div>
     <div
-      className={`comment-container ${
-        isReply
-      }`}
+      className={"comment-container gap"}
     >
       <div className="comment">
         <CommentVotes

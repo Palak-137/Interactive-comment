@@ -6,6 +6,13 @@
   flex-direction: column;
   width: 90%;
 
+  .gap{
+    margin-left: 10px;
+    padding: 10px;
+    border-left: 2px solid rgb(196, 191, 191);
+    margin-top: 0px;
+  }
+
   .comment {
     display: flex;
     flex-direction: column;
@@ -13,6 +20,7 @@
     padding: 15px;
     border-radius: 10px;
     gap: 15px;
+    margin-top: 15px;
     animation: come-in 1s ease-in;
 
     &--votes {
@@ -204,14 +212,14 @@
     align-items: center;
     flex-direction: column;
     padding-left: 15px;
-    border-left: 2px solid $light-gray;
-    margin-left: 15px;
+    border-left: 2px solid hsl(228, 7%, 86%);
+    margin-left: 15px ;
     gap: 15px;
 
     .comment-container {
       width: 100%;
-      
       .comment{
+        margin-left: 10px!important;
         animation: come-in 1.5s ease-in-out;
       }
     }
