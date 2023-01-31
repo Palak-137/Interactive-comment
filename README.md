@@ -1,8 +1,7 @@
 # Interactive comment Component
 
-The small react component for comment that can bee re-use for many applications. 
-It is responsivee and currentlly uses the dummy data that can be modified as per the use
-
+The small react component for comment can be re-used for many applications. 
+It is responsive and currently uses dummy data that can be modified as per the use
 
 # How to run the application:
 - Clone the repo using `git clone https://github.com/Palak-137/Interactive-comment.git`
